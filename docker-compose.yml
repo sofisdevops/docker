@@ -9,7 +9,8 @@ services:
       - "443:443" #Https
     volumes:
       - ./npm_data:/data
-      - ./npm_letsencrypt:/etc/letsencrypt    networks:
+      - ./npm_letsencrypt:/etc/letsencrypt    
+    networks:
       - red-cba-sofia
 
   servidor-bd-sofia:
@@ -40,13 +41,22 @@ services:
     networks:
       - red-cba-sofia
     depends_on:
-      servidor-bd-sofia:
-        condition: service_healthy
+      - servidor-bd-sofia
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:5050/ || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 3
+  uptime-kuma:
+    image: 
+    container_name: uptime-kuma
+    restart: always
+    ports:
+      - "3001"
+    volumes:
+      - uptime-kuma-data;/app/data
+    networks:
+      - red-cba-sofia
 
 networks: 
   red-cba-sofia: 
@@ -55,3 +65,5 @@ networks:
 volumes:
   mysql-data:
     name: mysql-data
+  uptime-kuma-data:
+    name: uptime-kuma-data
