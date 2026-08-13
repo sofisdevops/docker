@@ -54,7 +54,7 @@ services:
     ports:
       - "3001"
     volumes:
-      - uptime-kuma-data;/app/data
+      - uptime-kuma-data:/app/data
     networks:
       - red-cba-sofia
 
