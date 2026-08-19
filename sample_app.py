@@ -54,7 +54,7 @@ def home():
 
     return render_template("index.html", db_status=db_status, aprendices=aprendices, puerto="5050")
 
-@app.route("/registrar", methods=["POST"])
+@app.route("/registrar", methods=["GET"])
 def registrar():
     nombre = request.form.get("nombre_completo")
     documento = request.form.get("numero_documento")
@@ -78,7 +78,7 @@ def registrar():
 
 @app.route("/version")
 def version():
-    return "Bienvenidaaa wujuuuuuuu"
+    return "<h1>Bienvenidaaa wujuuuuuuu</h1>",201
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5050, debug=True)
