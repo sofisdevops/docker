@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Descargar código
-        uses: actions/chekcout@v3
+        uses: actions/checkout@v3
 
       - name: Confirgurar Python
         uses: actions/setup-python@v5
