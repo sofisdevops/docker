@@ -31,7 +31,7 @@ def init_db():
         conn.commit()
         conn.close()
     except Exception as e:
-        print(f"Error al verificar la tabla: {e}")
+        print(f"Error al verificar la tablita: {e}")
 
 @app.route("/")
 def home():
