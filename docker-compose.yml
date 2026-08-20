@@ -32,6 +32,7 @@ services:
 
   app_backend:
     build: .
+    image: zunnix/api_sofia:latest
     container_name: backend_sofia
     volumes:
       - .:/home/SOFIA
