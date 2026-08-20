@@ -34,8 +34,6 @@ services:
     build: .
     image: zunnix/api_sofia:latest
     container_name: backend_sofia
-    volumes:
-      - .:/home/SOFIA
     environment:
       FLASK_ENV: development
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
