@@ -1,6 +1,5 @@
-from sample_app import sample
+def ejemplitoSencillo(a,b):
+    return a * b
 
-def test_home_status_200():
-    cliente = sample.test_client()
-    respuesta = cliente.get('/')
-    assert respuesta.status_code == 200
+def test_del_ejemplitoSencillo ():
+    assert ejemplitoSencillo(2, 9) == 18
