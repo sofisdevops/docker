@@ -81,7 +81,6 @@ def registrar():
 def version():
     return "<h1>Bienvenidaaa wujuuuuuuu</h1>",201
 
-if __name__ == '__main__':
-    is_debug = os.getenv('FLASK_DEBUG', 'False').lower() in ('true', '1')
-    host = os.getenv('FLASK_HOST', '127.0.0.1')
-    app.run(host=host, port=5050, debug=is_debug)
+if __name__ == "__main__":
+    modo_debug = os.getenv("FLASK_DEBUG", "True").lower() == "true"
+    app.run(host='0.0.0.0', port=5050, debug=modo_debug) # nosec B104
