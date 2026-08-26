@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.14-slimj
 WORKDIR /home/SOFIA
 COPY requirement.txt .
 RUN pip install -r requirement.txt
