@@ -1,14 +1,15 @@
 from flask import Flask, request, render_template, redirect, url_for
 import pymysql
+import os
 
 app = Flask(__name__)
 
 DB_CONFIG = {
-    'host': 'contenedor-servidor-bd',          
-    'user': 'root',
-    'password': 'sena123',
-    'database': 'bd-de-sofia',              
-    'connect_timeout': 3  
+    'host': os.getenv('DB_HOST', 'contenedor-servidor-bd'),
+    'user': os.getenv('DB_USER', 'root'),
+    'password': os.getenv('DB_PASSWORD'),
+    'database': os.getenv('DB_NAME', 'bd-de-sofia'),
+    'connect_timeout': 3
 }
 
 def get_db_connection():
@@ -81,4 +82,6 @@ def version():
     return "<h1>Bienvenidaaa wujuuuuuuu</h1>",201
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5050, debug=True)
+    is_debug = os.getenv('FLASK_DEBUG', 'False').lower() in ('true', '1')
+    host = os.getenv('FLASK_HOST', '127.0.0.1')
+    app.run(host=host, port=5050, debug=is_debug)
