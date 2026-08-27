@@ -61,6 +61,17 @@ services:
     depends_on:
       - servidor-bd-sofia
 
+  dozzle:
+    image: amir20/dozzle:latest
+    container_name: dozzle
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8080:8080"
+    networks:
+      - red-cba-sofia
+
 networks: 
   red-cba-sofia: 
     name: red-cba-sofia-ejemplo
