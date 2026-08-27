@@ -2,7 +2,7 @@ name: Plublicar Imagen en dockerhub
 
 on: 
   push:
-    branches: ["main"]
+    branches: ["main","feature/vulnerabilidades"]
 
 jobs: 
   test-and-security:
