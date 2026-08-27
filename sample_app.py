@@ -79,7 +79,7 @@ def registrar():
 
 @app.route("/version")
 def version():
-    return "<h1>Bienvenidaaa wujuuuuuuu</h1>",500
+    return "<h1>Bienvenidaaa wujuuuuuuu</h1>",201
 
 if __name__ == "__main__":
     modo_debug = os.getenv("FLASK_DEBUG", "True").lower() == "true"
