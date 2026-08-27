@@ -1,5 +1,4 @@
-def ejemplitoSencillo(a,b):
-    return a * b
-
-def test_del_ejemplitoSencillo ():
-    assert ejemplitoSencillo(2, 9) == 18
+def test_version_page(client):
+    
+    response = client.get('/version')
+    assert response.status_code == 200
