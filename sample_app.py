@@ -7,8 +7,8 @@ app = Flask(__name__)
 DB_CONFIG = {
     'host': os.getenv('DB_HOST', 'contenedor-servidor-bd'),
     'user': os.getenv('DB_USER', 'root'),
-    'password': os.getenv('DB_PASSWORD'),
-    'database': os.getenv('DB_NAME', 'bd-de-sofia'),
+    'password': os.getenv('MYSQL_ROOT_PASSWORD'),
+    'database': os.getenv('MYSQL_DATABASE', 'bd-de-sofia'),
     'connect_timeout': 3
 }
 
@@ -55,7 +55,7 @@ def home():
 
     return render_template("index.html", db_status=db_status, aprendices=aprendices, puerto="5050")
 
-@app.route("/registrar", methods=["GET"])
+@app.route("/registrar", methods=["POST"])
 def registrar():
     nombre = request.form.get("nombre_completo")
     documento = request.form.get("numero_documento")
